@@ -1,5 +1,5 @@
 // * [X] `mouseover`
-// * [ ] `keydown`
+// * [X] `keydown`
 // * [ ] `wheel`
 // * [ ] `drag / drop`
 // * [ ] `load`
@@ -41,28 +41,57 @@ headerClick.addEventListener('dblclick', (event) => {
     event.target.style.background = '';
 });
 
-// set an ID on the header text
+// create a new HTML with ID for interaction
 let newDiv = document.createElement("NewHTML");
 newDiv.setAttribute("id", "madeUpDiv");
-newDiv.innerHTML = "Heres some sample text for selection";
+newDiv.style.fontSize = '40px';
+newDiv.style.color = 'red';
+newDiv.innerHTML = "Click here and type something to see your keystrokes logged!";
 document.body.append(newDiv);
 console.log(newDiv);
 
-function logSelection(event) {
-    const log = document.getElementsById('madeUpDiv');
-    const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
-    log.textContent = `You selected: ${selection}`;
+// keydown event
+const keyDown = document.addEventListener('keydown', interrogateKey);
+
+function interrogateKey(event){
+    newDiv.innerHTML += `${event.code}`; 
 }
-const update = document.querySelector('madeUpDiv');
-update.addEventListener('select', logSelection);
+console.log(keyDown);
+
+// Update and add an ID to the intro header to interact with 
 
 function updateIntroHeader() {
     document.getElementsByTagName("h2")[0].setAttribute('id', 'funBusFirstHeader');
 };
 
-// log
-
 updateIntroHeader();
+
+
+// make a form?
+
+let formField
+let formFieldTwo
+
+funBus_form=document.createElement('FORM');
+funBus_form.name='funBusForm';
+funBus_form.method='POST';
+funBus_form.action='http://www.google.com';
+
+formField=document.createElement('INPUT');
+formField.type='TEXT';
+formField.name='funBusInput';
+formField.value='Text For The Form';
+formField.appendChild(formFieldTwo);
+
+formFieldTwo=document.createElement('INPUT');
+formFieldTwo.type='TEXT';
+formFieldTwo.name='funBusInputTwo';
+formFieldTwo.value='Text for The 2nd Field of the Form';
+formField.appendChild(formField);
+document.body.appendChild(funBus_form);
+funBus_form.submit();
+
+//
 
 
 
