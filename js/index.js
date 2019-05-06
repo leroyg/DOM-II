@@ -67,35 +67,68 @@ function updateIntroHeader() {
 updateIntroHeader();
 
 
-// make a form?
+// make a form?  Referenced https://stackoverflow.com/questions/3991204/how-to-create-a-form-dynamically-using-javascript
 
-let formField
-let formFieldTwo
+// let formField 
+// let formFieldTwo
 
-funBus_form=document.createElement('FORM');
-funBus_form.name='funBusForm';
-funBus_form.method='POST';
-funBus_form.action='http://www.google.com';
+// funBus_form=document.createElement('FORM');
+// funBus_form.name='funBusForm';
+// funBus_form.method='POST';
+// funBus_form.action='http://www.google.com';
 
-formField=document.createElement('INPUT');
-formField.type='TEXT';
-formField.name='funBusInput';
-formField.value='Text For The Form';
-formField.appendChild(formFieldTwo);
+// formField=document.createElement('INPUT');
+// formField.type='TEXT';
+// formField.name='funBusInput';
+// formField.value='Text For The Form';
+// formField.appendChild(formFieldTwo);
 
-formFieldTwo=document.createElement('INPUT');
-formFieldTwo.type='TEXT';
-formFieldTwo.name='funBusInputTwo';
-formFieldTwo.value='Text for The 2nd Field of the Form';
-formField.appendChild(formField);
-document.body.appendChild(funBus_form);
-funBus_form.submit();
+// formFieldTwo=document.createElement('INPUT');
+// formFieldTwo.type='TEXT';
+// formFieldTwo.name='funBusInputTwo';
+// formFieldTwo.value='Text for The 2nd Field of the Form';
+// formField.appendChild(formField);
+// document.body.appendChild(funBus_form);
+// funBus_form.submit();
 
-//
+// wheel event
+const elementForWheel = document.getElementById('funBusFirstHeader');
+
+function scrolling(event) {
+    event.preventDefault();
+  
+    if (event.deltaY < 0) {
+      // scroll in
+      funBusFirstHeader.textContent = `You're scrolling in!`;
+    }
+    else {
+      // scroll out
+      funBusFirstHeader.textContent = `You're scrolling out!!`;
+    }
+  };
+  
+  console.log(elementForWheel);
 
 
 
 
+// mouseover event
+// const mouseMoving = document.querySelector('.content-section');
+
+// mouseMoving.addEventListener('click', (event) => {
+
+//     const content = document.querySelectorAll('.text-content');
+//         content.forEach(function(item) {
+//         item.style.display = 'none';
+//     });
+
+//     setTimeout(function() {
+//         content.forEach(function(item) {
+//            item.style.display = '';
+//         });
+//     }, 9000);
+
+// }, false);
 
 
 // function funBusSelection(event) {
@@ -104,13 +137,3 @@ funBus_form.submit();
 //     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
 //     logoItem.document = alert(`You selected: ${selection}`);
 // }
-
-
-
-// password.addEventListener('focus', (event) => {
-//   event.target.style.background = 'pink';    
-// });
-
-// password.addEventListener('blur', (event) => {
-//   event.target.style.background = '';    
-// });
