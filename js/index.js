@@ -1,13 +1,13 @@
-// * [ ] `mouseover`
+// * [X] `mouseover`
 // * [ ] `keydown`
 // * [ ] `wheel`
 // * [ ] `drag / drop`
 // * [ ] `load`
-// * [X] `focus`
+// * [ ] `focus`
 // * [ ] `resize`
 // * [ ] `scroll`
 // * [ ] `select`
-// * [ ] `dblclick`
+// * [X] `dblclick`
 
 // const lambdaBtn = document.querySelector('.lambda-button');
 // console.log(lambdaBtn);
@@ -17,6 +17,8 @@
 //   console.log(event);
 // });// Your code goes here
 
+
+// mouseover event
 const headerHover = document.querySelector('nav');
 
 console.log(headerHover);
@@ -25,12 +27,56 @@ headerHover.addEventListener('mouseover', (event) => {
     event.target.style.color = 'red';
 });
 
-// headerHover.addEventListener('focus', (event) => {
-//     event.target.style.color = 'grey';
-// });
+// click event
+
+const headerClick = document.querySelector('.main-navigation');
+// console.log(headerClick);
+
+headerClick.addEventListener('click', (event) => {
+    event.target.style.background = 'green';
+}, true);
+
+// double click event
+headerClick.addEventListener('dblclick', (event) => {
+    event.target.style.background = '';
+});
+
+// set an ID on the header text
+let newDiv = document.createElement("NewHTML");
+newDiv.setAttribute("id", "madeUpDiv");
+newDiv.innerHTML = "Heres some sample text for selection";
+document.body.append(newDiv);
+console.log(newDiv);
+
+function logSelection(event) {
+    const log = document.getElementsById('madeUpDiv');
+    const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+    log.textContent = `You selected: ${selection}`;
+}
+const update = document.querySelector('madeUpDiv');
+update.addEventListener('select', logSelection);
+
+function updateIntroHeader() {
+    document.getElementsByTagName("h2")[0].setAttribute('id', 'funBusFirstHeader');
+};
+
+// log
+
+updateIntroHeader();
 
 
-// const password = document.querySelector('input[type="password"]');
+
+
+
+
+// function funBusSelection(event) {
+// console.log(servicesHeader);
+
+//     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+//     logoItem.document = alert(`You selected: ${selection}`);
+// }
+
+
 
 // password.addEventListener('focus', (event) => {
 //   event.target.style.background = 'pink';    
