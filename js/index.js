@@ -106,7 +106,18 @@ function scrolling(event) {
     }
   };
   
+// scrolling
 
   window.addEventListener('scroll', function() {
     alert('they see me scrolling...they hatin...');
+});
+
+// Wheeling
+// window.addEventListener('wheel', function() {
+//     alert('Do you want to build a snowman!');
+// });
+
+let textContentH2 = document.querySelector('h2');
+textContentH2.addEventListener('wheel', (event) => {
+    event.target.style.backgroundColor = 'dodgerblue';
 });
