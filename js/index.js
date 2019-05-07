@@ -1,6 +1,6 @@
 // * [X] `mouseover`
 // * [X] `keydown`
-// * [ ] `wheel`
+// * [X] `wheel`
 // * [ ] `drag / drop`
 // * [ ] `load`
 // * [ ] `focus`
@@ -55,8 +55,7 @@ const keyDown = document.addEventListener('keydown', interrogateKey);
 
 function interrogateKey(event){
     newDiv.innerHTML += `${event.code}`; 
-}
-console.log(keyDown);
+};
 
 // Update and add an ID to the intro header to interact with 
 
@@ -107,33 +106,7 @@ function scrolling(event) {
     }
   };
   
-  console.log(elementForWheel);
 
-
-
-
-// mouseover event
-// const mouseMoving = document.querySelector('.content-section');
-
-// mouseMoving.addEventListener('click', (event) => {
-
-//     const content = document.querySelectorAll('.text-content');
-//         content.forEach(function(item) {
-//         item.style.display = 'none';
-//     });
-
-//     setTimeout(function() {
-//         content.forEach(function(item) {
-//            item.style.display = '';
-//         });
-//     }, 9000);
-
-// }, false);
-
-
-// function funBusSelection(event) {
-// console.log(servicesHeader);
-
-//     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
-//     logoItem.document = alert(`You selected: ${selection}`);
-// }
+  window.addEventListener('scroll', function() {
+    alert('they see me scrolling...they hatin...');
+});
